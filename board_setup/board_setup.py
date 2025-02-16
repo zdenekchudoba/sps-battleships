@@ -37,7 +37,7 @@ class BoardSetup:
         Returns the value at board coordinate (x, y).
         0 = water, or 1..7 = ship ID.
         
-        Raises an ValueError if the coordinates are out of bounds.
+        Raises an IndexError if the coordinates are out of bounds.
         Note: x is column, y is row.
         """
         raise NotImplementedError("get_tile() is not implemented yet.")
