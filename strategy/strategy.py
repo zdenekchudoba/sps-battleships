@@ -32,6 +32,7 @@ class Strategy:
         Returns the next (x, y) coordinates to attack.
         x = column, y = row.
         Must be within [0 .. cols-1], [0 .. rows-1].
+        Assume we will never call this function if all ships are sunk.
         """
         raise NotImplementedError("get_next_attack() is not implemented yet.")
 
