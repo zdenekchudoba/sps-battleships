@@ -9,18 +9,17 @@ class Strategy:
         self.shots_fired = set()
         self.missed_shots = set()
         self.hit_queue = []
-        self.current_hits = []  # Ukládá souřadnice aktuálně zasažené lodi
+        self.current_hits = []
         self.available_shots = {(x, y) for x in range(cols) for y in range(rows)}
+       def get_random_shot(self):
+        if not self.available_shots:
+            return None
+        return random.choice(tuple(self.available_shots))
  
     def get_next_attack(self) -> tuple[int, int]:
         if self.hit_queue:
             return self.hit_queue.pop(0)
         return self.get_random_shot()
- 
-    def get_random_shot(self):
-        if not self.available_shots:
-            return None
-        return random.choice(tuple(self.available_shots))
  
     def register_attack(self, x: int, y: int, is_hit: bool, is_sunk: bool) -> None:
         self.shots_fired.add((x, y))
